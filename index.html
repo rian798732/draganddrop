@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div class="row no-gutters">
+            <board id="board-1" class="col-6 vh-100 bg-light overflow-auto">
+                <card v-for="item in barang" draggable="true" :id="item.idbrg" :harga="item.harga">
+                    <button type="button" :btnclose="item.idbrg" :hrg="item.harga" class="close btn btn-danger p-2 btnHapus" style="position:absolute;display:block;z-index: 2;" data-dismiss="alert" aria-label="Close">
+                        <!-- <span aria-hidden="true">&times;</span> -->
+                      </button>
+                    <h5 v-text="item.nama">  </h5>
+                    <p style="font-size: 25pt;" class="font-weight-bold text-primary"> Rp. {{ item.harga }} </p>
+                    <div class="row d-none tmptBTN">
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-sm btn-primary btnT" :hrg="item.harga">+</button>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-sm btn-danger btnH" :hrg="item.harga">-</button>
+                        </div>
+                    </div>
+                  <small></small>
+                </card>
+                
+            </board>
+            <div class="col-6 vh-100 bg-secondary ">
+                <board id="board-2" class="h-75 w-100 overflow-auto">
+
+                </board>
+                <div class="h-25 w-100 bg-dark text-white text-center py-3">
+                    <h4 style="font-size: 27pt;" class="font-weight-bold text-white">Total</h4>
+                    <p style="font-size: 20pt;" class="font-weight-bold text-white">Rp. {{total}}</p>
+                    <p style="font-size: 15pt;" class="font-weight-bold text-white">Jumlah Barang : {{count}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <template id="board">
+        <div
+            :id="id"
+            class="board"
+            @dragover.prevent 
+            @drop.prevent="drop">
+            <slot></slot>
+        </div>
+    </template>
+
+    <template id="card">
+        <div    
+            :id="id"
+            class="card m-3 p-2 text-center"
+            :draggable="draggable"
+            @dragstart="dragStart"
+            @dragover.stop>
+            <slot></slot>
+        </div>
+    </template>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <script src="script.js"></script>
+</body>
+</html>

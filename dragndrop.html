@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/dragNdrop.css">
+	<link rel="stylesheet" href="../fontawesome/css/all.min.css">
+	<title>Drag N Drop</title>
+</head>
+<body>
+	<div class="container my-2" id="app">
+		<div class="row bg-primary">
+			<div class="col-md-6">
+				<div class="row" style="padding: 20px;">
+					
+                    <itemku src="../img/leather jacket.jpg" alt="leather jacket" id="leatherJacket" hrg="300.000"></itemku>
+					<itemku  src="../img/navid hat.jpg" id="navidHat" alt="Navid hat" hrg="70.000"></itemku>
+					<itemku src="../img/math top.jpg" id="mathTop" alt="Math Top" hrg="45.000"></itemku>
+					<itemku src="../img/walls tshirt.jpg" id="wallsTshirt" alt="Walls Tshirt" hrg="120.000"></itemku>
+					<itemku src="../img/white tshirt.jpg" id="whiteThisrt" alt="White Tshirt" hrg="80.000"></itemku>
+				
+				</div>				
+			</div>
+			<div class="col-md-2"></div>
+			<div class="col-md-4 bg-dark" id="dropLoc">
+				<h1 class="text-light text-center listCart mt-3">LIST CART</h1>
+
+				<h1 class="text-light text-center listCart">TOTAL Rp. <input type="text" readonly="" id="total" value="0" class="form-control text-center font-weight-bold mt-2" style="font-size: 20pt;"></h1>
+
+				
+			</div>
+		</div>
+		
+	</div>
+		<div id="contoh" style="display:none;">
+			<div class="alert alert-light p-1 mt-2" id="itemBaru" role="alert">
+			    <img imgBaru="imgBaru" src="" alt="Walls Tshirt" style="width:50px; height:50px;">
+				<input type="text" value="0" id="imgBaru" hrgBaru="hrgBaru" class="text-primary font-weight-bold total">
+	        	<button class="btn btn-info btn-sm currentPlus" style="left:80%;top:10px;position:absolute;" hrgAwal="hrgAwal"btn="plus" el="imgBaru" hrga="hrga"><i class="fas fa-plus fa-xs"></i></button>
+				<button class="btn btn-danger btn-sm currentMinus" style="left:90%;top:10px;position:absolute;" hrgAwal="hrgAwal"btn="minus" al="imgBaru" hrga="hrga"><i class="fas fa-minus fa-xs"></i></button>
+			</div>
+		</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <script src="../bootstrap.bundle.min.js"></script>
+    <script src="vue.js"></script>
+	<script src="dragndropVue.js"></script>
+	<script src="dragndrop.js"></script>
+</body>
+</html>
